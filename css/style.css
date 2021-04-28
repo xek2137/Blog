@@ -86,6 +86,7 @@ body {
 
 .list-horizontal li {
   display: inline-block;
+  padding: 4px;
 }
 
 /* Authors */
