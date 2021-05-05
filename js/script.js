@@ -6,7 +6,8 @@
         optTitleSelector = '.post-title',
         optTitleListSelector = '.titles',
         optArticleTagsSelector = '.post-tags .list',
-        optArticleAuthorSelector = '.post-author';
+        optArticleAuthorSelector = '.post-author',
+        optTagsListSelector = '.tags.list';
     
     const titleClickHandler = function (event) {
         event.preventDefault();
@@ -54,7 +55,7 @@
     generateTitleLinks();
 
     const generateTags = function () {
-
+        let allTags = {};
         const articles = document.querySelectorAll(optArticleSelector);
         for (let article of articles) {
  
@@ -66,9 +67,23 @@
 
                 const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
                 html = html + linkHTML;
+                if(!allTags[tag]) {
+
+                    allTags[tag] = 1;
+                }
+                else {
+                    allTags[tag]++;
+                }
             }
             wrapperTags.innerHTML = html;
         }
+
+        const tagList = document.querySelector(optTagsListSelector);
+        let allTagsHTML = '';
+        for (let tag in allTags) {
+            allTagsHTML += '<li><a href="#tag-' + tag + '">' + tag + ' (' + allTags[tag] + ') ' + '</a></li>';
+        }
+        tagList.innerHTML = allTagsHTML;
     };
     generateTags();
 
@@ -142,7 +157,7 @@
 
         const linkAuthors = document.querySelectorAll('a[href^="#tag-author-"]');
         for (let linkAuthor of linkAuthors) {
-            
+
             linkAuthor.addEventListener('click', authorClickHandler);
         }
     };
