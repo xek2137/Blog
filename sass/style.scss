@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Oswald:400,600|Sacramento|Source+Sans+Pro:300&subset=latin-ext");
 
 /* Variables */
-
 $color-light: #fff;
 $color-dark: #444;
 
@@ -10,7 +9,6 @@ $font-header: "Oswald", sans-serif;
 $font-text: "Source Sans Pro", sans-serif;
 
 /* Global */
-
 *,
 *::before,
 *::after {
@@ -44,7 +42,6 @@ body {
 }
 
 /* Layout */
-
 .wrapper {
     display: flex;
     margin-left: 10px;
@@ -68,7 +65,6 @@ body {
 }
 
 /* Logo */
-
 .logo {
     font-family: $font-logo;
     font-weight: 400;
@@ -78,7 +74,6 @@ body {
 }
 
 /* Lists */
-
 .list {
     list-style-type: none;
     margin: 0;
@@ -96,7 +91,6 @@ body {
 }
 
 /* Authors */
-
 .authors {
     li {
         margin-bottom: 12px;
@@ -104,7 +98,6 @@ body {
 }
 
 /* Post */
-
 .post {
     display: none;
     &.active {
@@ -120,5 +113,48 @@ body {
     display: flex;
     p {
         margin: 0 10px 0 0;
+    }
+}
+
+/* Tags */
+
+.tag-size-1 {
+    font-size: 10px;
+    color: red;
+}
+
+.tag-size-2 {
+    font-size: 12px;
+    color: black;
+}
+
+.tag-size-3 {
+    font-size: 16px;
+    color: green;
+}
+
+.tag-size-4 {
+    font-size: 20px;
+    color: violet;
+}
+
+.tag-size-5 {
+    font-size: 24px;
+    color: blue;
+}
+
+.tags li {
+    display: inline;
+    padding: 4px;
+    [class*="tag-size"] {
+        text-decoration: none;
+    }
+}
+
+.authors li {
+    display: inline-block;
+    padding: 4px;
+    [class*="tag-size"] {
+        text-decoration: none;
     }
 }
